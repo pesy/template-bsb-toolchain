@@ -1,0 +1,13 @@
+# Cross-platform set of build steps for building esy projects
+
+steps:
+  - template: utils/use-node.yml
+  - template: utils/use-esy.yml
+  - script: "npm install -g pesy@next"
+    displayName: "install pesy" 
+  - script: "pesy --directory $(Pipeline.Workspace)/test-project --template=pesy/template-bsb-toolchain#$(Build.SourceBranch) --bootstrap-only"
+    displayName: "Initialize pesy template"
+  - script: "esy"
+    displayName: "Build sandbox (running esy)"
+    workingDirectory: $(Pipeline.Workspace)/test-project
+  - template: utils/publish-build-cache.yml

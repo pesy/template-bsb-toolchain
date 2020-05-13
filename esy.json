@@ -1,0 +1,18 @@
+{
+  "name": "esy-toolchain",
+  "description": "Toolchain for Bucklescript Projects.",
+  "version": "0.1.0",
+  "pesy": {
+    "azure-project": "pesy/pesy",
+    "github": "pesy/template-bsb-toolchain"
+  },
+  "dependencies": {
+    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam",
+    "@opam/dune": "2.0.1",
+    "@esy-ocaml/reason": "*",
+    "ocaml": "*"
+  },
+  "resolutions": {
+    "ocaml": "4.6.1000-esy-wo-bc-bins.3"
+  }
+}
